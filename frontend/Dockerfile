@@ -3,18 +3,20 @@ FROM node:18
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json .
 
 RUN npm install
+
+COPY . .
 
 RUN npm run build
 
 
 # -- Deploying Stage
-# FROM nginx:alpine
+FROM nginx:alpine
 
-# COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/build /usr/share/nginx/html
 
-# EXPOSE 80
+EXPOSE 80
 
-# CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
