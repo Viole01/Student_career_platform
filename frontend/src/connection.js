@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create a custom Axios instance with default headers
 const axiosInstance = axios.create({
-  baseURL: 'https://localhost:3002', // Replace with your API's base URL
+  baseURL: 'http://localhost:3002', // Replace with your API's base URL
 });
 
 // Add a request interceptor to dynamically set the token if available
@@ -20,5 +20,5 @@ axiosInstance.interceptors.request.use(
   }
 );
 
-const Url = 'https://localhost:3002';
+const Url = 'http://localhost:3002';
 export { axiosInstance, Url };
