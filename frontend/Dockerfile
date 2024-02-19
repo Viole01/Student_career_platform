@@ -1,5 +1,5 @@
 # -- Build stage
-FROM node:18 AS build
+FROM node:18
 
 WORKDIR /app
 
@@ -11,10 +11,10 @@ RUN npm run build
 
 
 # -- Deploying Stage
-FROM nginx:alpine
+# FROM nginx:alpine
 
-COPY --from=build /app/build /usr/share/nginx/html
+# COPY --from=build /app/build /usr/share/nginx/html
 
-EXPOSE 80
+# EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
