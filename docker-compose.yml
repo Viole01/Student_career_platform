@@ -6,7 +6,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - '3000:3000'
+      - '3000:80' # "Your Machine Port":"Image's Port"
     depends_on:
       - backend
 
